@@ -3,21 +3,446 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Anagha Das M - Python Django Developer portfolio showcasing projects, skills, and experience. ATS-friendly professional portfolio.">
-    <meta name="keywords" content="Python, Django, Developer, Portfolio, Anagha Das, Web Development, MySQL">
-    <meta name="author" content="Anagha Das M">
+    <meta name="description" content="Anagha Das M - Python Django Developer Portfolio">
     <title>Anagha Das M | Python Django Developer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ========== STYLES DIRECTLY IN HTML (ensures it works) ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1e1e2f;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: #6c5ce7;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-text {
+            font-size: 1.1rem;
+            color: #6c6c7a;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            transition: transform 0.3s;
+            margin-right: 1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #5a4ad1, #9794ff);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #6c5ce7;
+            color: #6c5ce7;
+            padding: 12px 30px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: #6c5ce7;
+            color: white;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .hero-stats div span {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #6c5ce7;
+        }
+
+        /* Profile Image */
+        .profile-img-wrapper {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .profile-img-placeholder {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .profile-img-placeholder i {
+            font-size: 150px;
+            color: #6c5ce7;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-subtitle {
+            display: inline-block;
+            color: #6c5ce7;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8f9ff;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #4a4a5a;
+        }
+
+        .about-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .about-info div {
+            padding: 0.5rem 0;
+        }
+
+        .about-info i {
+            color: #6c5ce7;
+            margin-right: 10px;
+            width: 25px;
+        }
+
+        /* Skills */
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.15);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: #6c5ce7;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-bar {
+            background: #e0e0e0;
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
+            height: 100%;
+            border-radius: 3px;
+        }
+
+        /* Projects */
+        .projects {
+            background: #f8f9ff;
+        }
+
+        .project-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(108, 92, 231, 0.15);
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            color: #6c6c7a;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech span {
+            background: #f8f9ff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #6c5ce7;
+        }
+
+        /* Experience */
+        .timeline-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 1rem;
+            top: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-icon i {
+            color: white;
+        }
+
+        .timeline-date {
+            color: #6c5ce7;
+            font-weight: 500;
+            margin: 0.5rem 0;
+        }
+
+        .timeline-card ul {
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .timeline-card li {
+            margin-bottom: 0.5rem;
+            color: #4a4a5a;
+        }
+
+        /* Contact */
+        .contact {
+            background: #1e1e2f;
+            color: white;
+        }
+
+        .contact-text {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #a8a5ff;
+        }
+
+        .contact-info i {
+            margin-right: 8px;
+        }
+
+        footer {
+            background: #1e1e2f;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            .profile-img-wrapper {
+                width: 220px;
+                height: 220px;
+                margin-top: 2rem;
+            }
+            .profile-img-placeholder {
+                width: 200px;
+                height: 200px;
+            }
+            .profile-img-placeholder i {
+                font-size: 100px;
+            }
+            .about-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ========== NAVBAR ========== -->
-<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#home">Anagha<span class="brand-dot">.</span>Das</a>
+        <a class="navbar-brand" href="#">Anagha<span style="color:#6c5ce7;">.</span>Das</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,17 +459,17 @@
     </div>
 </nav>
 
-<!-- ========== HERO SECTION ========== -->
+<!-- Hero Section -->
 <section id="home" class="hero">
     <div class="container">
-        <div class="row min-vh-100 align-items-center">
-            <div class="col-lg-7" data-aos="fade-right">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
                 <span class="hero-badge">Python Django Developer</span>
-                <h1 class="display-2 fw-bold">Anagha Das M</h1>
+                <h1>Hi, I'm <span class="highlight">Anagha Das M</span></h1>
                 <p class="hero-text">I build database-driven web applications that solve real-world problems. Currently interning as a Python Django Developer, passionate about clean code and efficient solutions.</p>
-                <div class="hero-buttons">
+                <div>
                     <a href="#contact" class="btn btn-primary">Hire Me <i class="fas fa-arrow-right"></i></a>
-                    <a href="#projects" class="btn btn-outline">View Projects <i class="fas fa-code"></i></a>
+                    <a href="#projects" class="btn-outline">View Projects <i class="fas fa-code"></i></a>
                 </div>
                 <div class="hero-stats">
                     <div><span>2+</span><br>Projects</div>
@@ -52,30 +477,22 @@
                     <div><span>5+</span><br>Technologies</div>
                 </div>
             </div>
-            <div class="col-lg-5 text-center" data-aos="fade-left">
+            <div class="col-lg-5 text-center">
                 <div class="profile-img-wrapper">
                     <div class="profile-img-placeholder">
-    <img src="assets/profile.jpg" alt="Anagha Das M">
-</div>
+                        <i class="fas fa-user-circle"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="hero-shape"></div>
 </section>
 
-<!-- ========== ABOUT SECTION ========== -->
+<!-- About Section -->
 <section id="about" class="about">
     <div class="container">
-        <div class="row g-5 align-items-center">
-            <div class="col-lg-5" data-aos="fade-right">
-                <div class="about-img">
-                    <div class="about-img-placeholder">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-7" data-aos="fade-left">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
                 <span class="section-subtitle">About Me</span>
                 <h2 class="section-title">Who Am I?</h2>
                 <p class="about-text">I'm an ambitious MCA student with strong internship experience in backend development. I specialize in building database-driven web applications using Django and MySQL, with solid fundamentals in Data Structures and Database Management Systems.</p>
@@ -91,52 +508,51 @@
     </div>
 </section>
 
-<!-- ========== SKILLS SECTION ========== -->
-<section id="skills" class="skills">
+<!-- Skills Section -->
+<section id="skills">
     <div class="container">
-        <div class="text-center" data-aos="fade-up">
+        <div class="text-center">
             <span class="section-subtitle">My Skills</span>
             <h2 class="section-title">Technical Expertise</h2>
         </div>
-        <div class="row g-4 mt-4">
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
                 <div class="skill-card"><i class="fab fa-python"></i><h4>Python</h4><div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div></div>
             </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-md-6 col-lg-3">
                 <div class="skill-card"><i class="fab fa-django"></i><h4>Django</h4><div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div></div>
             </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-md-6 col-lg-3">
                 <div class="skill-card"><i class="fas fa-database"></i><h4>MySQL</h4><div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div></div>
             </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-md-6 col-lg-3">
                 <div class="skill-card"><i class="fab fa-js"></i><h4>JavaScript</h4><div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div></div>
             </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-6 col-lg-3">
                 <div class="skill-card"><i class="fab fa-html5"></i><h4>HTML5/CSS3</h4><div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div></div>
             </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-md-6 col-lg-3">
                 <div class="skill-card"><i class="fab fa-git-alt"></i><h4>Git</h4><div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div></div>
             </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-md-6 col-lg-3">
                 <div class="skill-card"><i class="fas fa-code"></i><h4>C/C++</h4><div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div></div>
             </div>
-            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-md-6 col-lg-3">
                 <div class="skill-card"><i class="fab fa-java"></i><h4>Java/PHP</h4><div class="skill-bar"><div class="skill-progress" style="width: 65%"></div></div></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ========== PROJECTS SECTION ========== -->
+<!-- Projects Section -->
 <section id="projects" class="projects">
     <div class="container">
-        <div class="text-center" data-aos="fade-up">
+        <div class="text-center">
             <span class="section-subtitle">My Work</span>
             <h2 class="section-title">Featured Projects</h2>
         </div>
-        <div class="row g-4 mt-4">
-            <!-- Project 1: HomeFix -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="row">
+            <div class="col-lg-6">
                 <div class="project-card">
                     <div class="project-icon"><i class="fas fa-home"></i></div>
                     <h3>Home Fix - Service Booking System</h3>
@@ -144,14 +560,9 @@
                     <div class="project-tech">
                         <span>Python</span><span>Django</span><span>MySQL</span><span>Bootstrap</span>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn-small"><i class="fab fa-github"></i> Code</a>
-                        <a href="#" class="btn-small"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                    </div>
                 </div>
             </div>
-            <!-- Project 2: VolunLink -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-6">
                 <div class="project-card">
                     <div class="project-icon"><i class="fas fa-hand-holding-heart"></i></div>
                     <h3>VolunLink - Volunteer Management System</h3>
@@ -159,25 +570,21 @@
                     <div class="project-tech">
                         <span>Python</span><span>Django</span><span>SQLite</span><span>JavaScript</span>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn-small"><i class="fab fa-github"></i> Code</a>
-                        <a href="#" class="btn-small"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ========== EXPERIENCE & EDUCATION ========== -->
-<section id="experience" class="experience">
+<!-- Experience Section -->
+<section id="experience">
     <div class="container">
-        <div class="text-center" data-aos="fade-up">
+        <div class="text-center">
             <span class="section-subtitle">Resume</span>
             <h2 class="section-title">Experience & Education</h2>
         </div>
-        <div class="row g-4 mt-4">
-            <div class="col-lg-6" data-aos="fade-right">
+        <div class="row">
+            <div class="col-lg-6">
                 <div class="timeline-card">
                     <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
                     <h3>Python Django Intern</h3>
@@ -191,7 +598,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-6" data-aos="fade-left">
+            <div class="col-lg-6">
                 <div class="timeline-card">
                     <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h3>Master of Computer Applications</h3>
@@ -199,7 +606,7 @@
                     <p class="timeline-date">2024 - 2026</p>
                     <p>Relevant Coursework: Data Structures, DBMS, Operating Systems, OOP, Software Engineering, Web Technologies</p>
                 </div>
-                <div class="timeline-card mt-4">
+                <div class="timeline-card">
                     <div class="timeline-icon"><i class="fas fa-certificate"></i></div>
                     <h3>Certifications</h3>
                     <ul>
@@ -212,35 +619,51 @@
     </div>
 </section>
 
-<!-- ========== CONTACT SECTION ========== -->
+<!-- Contact Section -->
 <section id="contact" class="contact">
     <div class="container">
-        <div class="text-center" data-aos="fade-up">
-            <span class="section-subtitle">Get In Touch</span>
-            <h2 class="section-title">Let's Work Together</h2>
-        </div>
-        <div class="row justify-content-center mt-5">
-            <div class="col-lg-8 text-center" data-aos="fade-up">
-                <p class="contact-text">I'm currently available for internship or full-time opportunities. Feel free to reach out!</p>
-                <div class="contact-info">
-                    <a href="mailto:anaghamdaz@gmail.com"><i class="fas fa-envelope"></i> anaghamdaz@gmail.com</a>
-                    <a href="tel:+919037340965"><i class="fas fa-phone"></i> +91 9037340965</a>
-                    <a href="https://github.com/anaghamdaz" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://www.linkedin.com/in/anagha-das-m-748660403/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                </div>
+        <div class="text-center">
+            <span class="section-subtitle" style="color: #a8a5ff;">Get In Touch</span>
+            <h2 class="section-title" style="color: white;">Let's Work Together</h2>
+            <p class="contact-text">I'm currently available for internship or full-time opportunities. Feel free to reach out!</p>
+            <div class="contact-info">
+                <a href="mailto:anaghamdaz@gmail.com"><i class="fas fa-envelope"></i> anaghamdaz@gmail.com</a>
+                <a href="tel:+919037340965"><i class="fas fa-phone"></i> +91 9037340965</a>
+                <a href="https://github.com/anaghamdaz" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/anagha-das-m-748660403/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
         </div>
     </div>
 </section>
 
 <footer>
-    <div class="container text-center">
+    <div class="container">
         <p>&copy; 2026 Anagha Das M. Built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for Python Django development.</p>
     </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="script.js"></script>
+<script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Navbar background change on scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+        } else {
+            navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+        }
+    });
+</script>
 </body>
 </html>
