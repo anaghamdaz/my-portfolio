@@ -3,223 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anagha Das M - Python Django Developer portfolio showcasing projects, skills, and experience. ATS-friendly professional portfolio.">
+    <meta name="keywords" content="Python, Django, Developer, Portfolio, Anagha Das, Web Development, MySQL">
+    <meta name="author" content="Anagha Das M">
     <title>Anagha Das M | Python Django Developer</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Anagha Das</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="#home">Anagha<span class="brand-dot">.</span>Das</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ========== HERO SECTION ========== -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="row min-vh-100 align-items-center">
+            <div class="col-lg-7" data-aos="fade-right">
+                <span class="hero-badge">Python Django Developer</span>
+                <h1 class="display-2 fw-bold">Anagha Das M</h1>
+                <p class="hero-text">I build database-driven web applications that solve real-world problems. Currently interning as a Python Django Developer, passionate about clean code and efficient solutions.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Hire Me <i class="fas fa-arrow-right"></i></a>
+                    <a href="#projects" class="btn btn-outline">View Projects <i class="fas fa-code"></i></a>
+                </div>
+                <div class="hero-stats">
+                    <div><span>2+</span><br>Projects</div>
+                    <div><span>1+</span><br>Year Experience</div>
+                    <div><span>5+</span><br>Technologies</div>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center" data-aos="fade-left">
+                <div class="profile-img-wrapper">
+                    <div class="profile-img-placeholder">
+    <img src="assets/profile.jpg" alt="Anagha Das M">
+</div>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
+    <div class="hero-shape"></div>
+</section>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="row min-vh-100 align-items-center">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-3 fw-bold">Hi, I'm <span class="highlight">Anagha Das M</span></h1>
-                    <h2 class="mb-4">Python Django Developer</h2>
-                    <p class="lead mb-4">Entry-level developer passionate about building database-driven web applications with Django and creating meaningful digital solutions.</p>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary btn-lg">Get In Touch</a>
-                        <a href="#projects" class="btn btn-outline-light btn-lg">View My Work</a>
+<!-- ========== ABOUT SECTION ========== -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-5" data-aos="fade-right">
+                <div class="about-img">
+                    <div class="about-img-placeholder">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7" data-aos="fade-left">
+                <span class="section-subtitle">About Me</span>
+                <h2 class="section-title">Who Am I?</h2>
+                <p class="about-text">I'm an ambitious MCA student with strong internship experience in backend development. I specialize in building database-driven web applications using Django and MySQL, with solid fundamentals in Data Structures and Database Management Systems.</p>
+                <p class="about-text">I thrive on solving real-world problems through technology. Currently pursuing my Master's degree while gaining hands-on experience as a Python Django Intern at Irohub Infotech. My goal is to leverage my skills in backend development to create efficient, scalable, and user-friendly applications.</p>
+                <div class="about-info">
+                    <div><i class="fas fa-envelope"></i> anaghamdaz@gmail.com</div>
+                    <div><i class="fas fa-map-marker-alt"></i> Ernakulam, Kerala</div>
+                    <div><i class="fas fa-phone"></i> +91 9037340965</div>
+                    <div><i class="fab fa-linkedin"></i> linkedin.com/in/anagha-das-m</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SKILLS SECTION ========== -->
+<section id="skills" class="skills">
+    <div class="container">
+        <div class="text-center" data-aos="fade-up">
+            <span class="section-subtitle">My Skills</span>
+            <h2 class="section-title">Technical Expertise</h2>
+        </div>
+        <div class="row g-4 mt-4">
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="skill-card"><i class="fab fa-python"></i><h4>Python</h4><div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div></div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="skill-card"><i class="fab fa-django"></i><h4>Django</h4><div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div></div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="skill-card"><i class="fas fa-database"></i><h4>MySQL</h4><div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div></div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="skill-card"><i class="fab fa-js"></i><h4>JavaScript</h4><div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div></div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="skill-card"><i class="fab fa-html5"></i><h4>HTML5/CSS3</h4><div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div></div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="skill-card"><i class="fab fa-git-alt"></i><h4>Git</h4><div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div></div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="skill-card"><i class="fas fa-code"></i><h4>C/C++</h4><div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div></div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="skill-card"><i class="fab fa-java"></i><h4>Java/PHP</h4><div class="skill-bar"><div class="skill-progress" style="width: 65%"></div></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== PROJECTS SECTION ========== -->
+<section id="projects" class="projects">
+    <div class="container">
+        <div class="text-center" data-aos="fade-up">
+            <span class="section-subtitle">My Work</span>
+            <h2 class="section-title">Featured Projects</h2>
+        </div>
+        <div class="row g-4 mt-4">
+            <!-- Project 1: HomeFix -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-home"></i></div>
+                    <h3>Home Fix - Service Booking System</h3>
+                    <p class="project-desc">Role-based web platform for booking home services. Implemented dynamic time-slot scheduling, user authentication, and service provider management.</p>
+                    <div class="project-tech">
+                        <span>Python</span><span>Django</span><span>MySQL</span><span>Bootstrap</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn-small"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="btn-small"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Project 2: VolunLink -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>VolunLink - Volunteer Management System</h3>
+                    <p class="project-desc">Intelligent community volunteer coordination platform for emergency response. Features role-based access, task allocation, real-time alerts, and resource tracking.</p>
+                    <div class="project-tech">
+                        <span>Python</span><span>Django</span><span>SQLite</span><span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn-small"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="btn-small"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="about-text">
-                        I'm an ambitious MCA student with strong internship experience in backend development. 
-                        I specialize in building database-driven web applications using Django and MySQL, with 
-                        solid fundamentals in Data Structures and Database Management Systems.
-                    </p>
-                    <p class="about-text">
-                        I thrive on solving real-world problems through technology. Currently pursuing my Master's 
-                        degree while gaining hands-on experience as a Python Django Intern at Irohub Infotech. 
-                        My goal is to leverage my skills in backend development to create efficient, scalable, 
-                        and user-friendly applications.
-                    </p>
-                    <p class="about-text">
-                        When I'm not coding, I'm exploring new technologies, contributing to open-source projects, 
-                        or enhancing my skills through certifications in emerging fields like Generative AI.
-                    </p>
+<!-- ========== EXPERIENCE & EDUCATION ========== -->
+<section id="experience" class="experience">
+    <div class="container">
+        <div class="text-center" data-aos="fade-up">
+            <span class="section-subtitle">Resume</span>
+            <h2 class="section-title">Experience & Education</h2>
+        </div>
+        <div class="row g-4 mt-4">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="timeline-card">
+                    <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Python Django Intern</h3>
+                    <h4>Irohub Infotech, Kochi</h4>
+                    <p class="timeline-date">2025 - Present</p>
+                    <ul>
+                        <li>Developing backend applications using Python and Django</li>
+                        <li>Designing database models using Django ORM</li>
+                        <li>Implementing authentication and role-based access</li>
+                        <li>Assisting in API development and debugging</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="timeline-card">
+                    <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Master of Computer Applications</h3>
+                    <h4>Sree Narayana Gurukulam College of Engineering (KTU)</h4>
+                    <p class="timeline-date">2024 - 2026</p>
+                    <p>Relevant Coursework: Data Structures, DBMS, Operating Systems, OOP, Software Engineering, Web Technologies</p>
+                </div>
+                <div class="timeline-card mt-4">
+                    <div class="timeline-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>Certifications</h3>
+                    <ul>
+                        <li>Generative AI Literacy - NASSCOM (2025)</li>
+                        <li>Introduction to Graphic Designing - NPTEL, IIT Hyderabad (2025)</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title text-center">Technical Skills</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">Python</div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">Django</div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">MySQL</div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">SQLite</div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">HTML5/CSS3</div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">JavaScript</div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">C/C++</div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">Java</div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">PHP</div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="skill-card">Git</div>
+<!-- ========== CONTACT SECTION ========== -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="text-center" data-aos="fade-up">
+            <span class="section-subtitle">Get In Touch</span>
+            <h2 class="section-title">Let's Work Together</h2>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-8 text-center" data-aos="fade-up">
+                <p class="contact-text">I'm currently available for internship or full-time opportunities. Feel free to reach out!</p>
+                <div class="contact-info">
+                    <a href="mailto:anaghamdaz@gmail.com"><i class="fas fa-envelope"></i> anaghamdaz@gmail.com</a>
+                    <a href="tel:+919037340965"><i class="fas fa-phone"></i> +91 9037340965</a>
+                    <a href="https://github.com/anaghamdaz" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/anagha-das-m-748660403/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title text-center">Featured Projects</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <h3>Home Fix - Service Booking System</h3>
-                        <p class="project-year">2025</p>
-                        <p>Built a role-based web platform for booking home services. Implemented dynamic time-slot scheduling and authentication system for seamless user experience.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Django</span>
-                            <span>MySQL</span>
-                            <span>HTML/CSS</span>
-                            <span>JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <h3>VolunLink - Volunteer Management System</h3>
-                        <p class="project-year">2025</p>
-                        <p>Intelligent community volunteer management platform for coordination and emergency response. Implemented role-based access, task allocation, alerts, and resource tracking.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Django</span>
-                            <span>SQLite</span>
-                            <span>Bootstrap</span>
-                            <span>JavaScript</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer>
+    <div class="container text-center">
+        <p>&copy; 2026 Anagha Das M. Built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for Python Django development.</p>
+    </div>
+</footer>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title text-center">Work Experience</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="exp-card">
-                        <h3>Python Django Intern</h3>
-                        <h4>Irohub Infotech, Padamughal, Kochi</h4>
-                        <p class="exp-date">2025 - Present</p>
-                        <ul>
-                            <li>Developing backend applications using Python and Django</li>
-                            <li>Designing database models using Django ORM</li>
-                            <li>Implementing authentication and role-based access control</li>
-                            <li>Assisting in API development and debugging</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2 class="section-title text-center">Education & Certifications</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-6">
-                    <div class="edu-card">
-                        <h3>Master of Computer Applications (MCA)</h3>
-                        <h4>Sree Narayana Gurukulam College of Engineering (KTU)</h4>
-                        <p>2024 - 2026</p>
-                        <p><strong>Relevant Coursework:</strong> Data Structures, DBMS, Operating Systems, OOP, Software Engineering, Web Technologies</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="edu-card">
-                        <h3>Certifications</h3>
-                        <ul>
-                            <li><strong>Generative AI Literacy</strong> - NASSCOM (2025)</li>
-                            <li><strong>Introduction to Graphic Designing</strong> - NPTEL, IIT Hyderabad (2025)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title text-center">Let's Connect</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-6 text-center">
-                    <p><i class="fas fa-map-marker-alt"></i> Ernakulam, Kerala, India</p>
-                    <p><i class="fas fa-envelope"></i> anaghamdaz@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +91 9037340965</p>
-                    <div class="social-links">
-                        <a href="https://github.com/anaghamdaz" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/anagha-das-m-748660403/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="text-center py-4">
-        <p>&copy; 2026 Anagha Das M. All rights reserved.</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
