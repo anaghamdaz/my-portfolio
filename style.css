@@ -1,8 +1,9 @@
 :root {
-    --primary: #2563eb;
-    --secondary: #1e40af;
-    --dark: #1e293b;
-    --light: #f8fafc;
+    --primary: #6c63ff;
+    --secondary: #4a42d1;
+    --dark: #2d2d3f;
+    --light: #f8f9ff;
+    --accent: #ff6b6b;
 }
 
 * {
@@ -14,13 +15,15 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--dark);
+    line-height: 1.6;
 }
 
 /* Navigation */
 .navbar {
     background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
+    padding: 1rem 0;
 }
 
 .navbar-brand {
@@ -32,6 +35,7 @@ body {
 .nav-link {
     font-weight: 500;
     transition: color 0.3s ease;
+    margin: 0 0.5rem;
 }
 
 .nav-link:hover {
@@ -48,17 +52,35 @@ body {
 
 .highlight {
     color: #ffd700;
+    display: inline-block;
+    animation: fadeInUp 0.8s ease;
+}
+
+.hero-buttons {
+    margin-top: 2rem;
 }
 
 .btn-primary {
     background: var(--primary);
     border: none;
     padding: 12px 30px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    margin: 0 10px;
 }
 
 .btn-primary:hover {
     background: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-outline-light {
+    padding: 12px 30px;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
     transform: translateY(-2px);
 }
 
@@ -103,15 +125,17 @@ body {
     padding: 20px;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
     font-weight: 600;
     font-size: 1.1rem;
+    cursor: pointer;
 }
 
 .skill-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    color: var(--primary);
 }
 
 /* Projects Section */
@@ -124,20 +148,27 @@ body {
     background: white;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     transition: transform 0.3s ease;
     height: 100%;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.project-year {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .project-tech {
     margin-top: 15px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .project-tech span {
@@ -146,6 +177,7 @@ body {
     border-radius: 20px;
     font-size: 0.85rem;
     color: var(--primary);
+    font-weight: 500;
 }
 
 /* Experience Section */
@@ -157,7 +189,7 @@ body {
     background: white;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     margin-bottom: 20px;
 }
 
@@ -168,7 +200,56 @@ body {
 
 .exp-card h4 {
     color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.exp-date {
+    color: #666;
+    font-style: italic;
     margin-bottom: 15px;
+}
+
+.exp-card ul {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.exp-card li {
+    margin-bottom: 8px;
+}
+
+/* Education Section */
+.education {
+    padding: 80px 0;
+    background: var(--light);
+}
+
+.edu-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    height: 100%;
+}
+
+.edu-card h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.edu-card h4 {
+    color: var(--dark);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.edu-card ul {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.edu-card li {
+    margin-bottom: 10px;
 }
 
 /* Contact Section */
@@ -176,6 +257,16 @@ body {
     padding: 80px 0;
     background: var(--dark);
     color: white;
+}
+
+.contact p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.contact i {
+    margin-right: 10px;
+    color: var(--primary);
 }
 
 .social-links {
@@ -186,11 +277,32 @@ body {
     color: white;
     font-size: 2rem;
     margin: 0 15px;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .social-link:hover {
     color: var(--primary);
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    background: var(--dark);
+    color: white;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive */
@@ -199,7 +311,15 @@ body {
         font-size: 2rem;
     }
     
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    
     .section-title {
         font-size: 2rem;
+    }
+    
+    .btn-primary, .btn-outline-light {
+        margin: 10px;
     }
 }
