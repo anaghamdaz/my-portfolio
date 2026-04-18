@@ -1,669 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Anagha Das M - Python Django Developer Portfolio">
-    <title>Anagha Das M | Python Django Developer</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* ========== STYLES DIRECTLY IN HTML (ensures it works) ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #1e1e2f;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        .navbar {
-            background: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .nav-link {
-            font-weight: 500;
-            margin: 0 0.5rem;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
-
-        .nav-link:hover {
-            color: #6c5ce7;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
-            color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .highlight {
-            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .hero-text {
-            font-size: 1.1rem;
-            color: #6c6c7a;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            transition: transform 0.3s;
-            margin-right: 1rem;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, #5a4ad1, #9794ff);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #6c5ce7;
-            color: #6c5ce7;
-            padding: 12px 30px;
-            border-radius: 50px;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-outline:hover {
-            background: #6c5ce7;
-            color: white;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .hero-stats div span {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #6c5ce7;
-        }
-
-        /* Profile Image */
-        .profile-img-wrapper {
-            width: 300px;
-            height: 300px;
-            margin: 0 auto;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .profile-img-placeholder {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .profile-img-placeholder i {
-            font-size: 150px;
-            color: #6c5ce7;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Section Styles */
-        section {
-            padding: 100px 0;
-        }
-
-        .section-subtitle {
-            display: inline-block;
-            color: #6c5ce7;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-        }
-
-        /* About Section */
-        .about {
-            background: #f8f9ff;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: #4a4a5a;
-        }
-
-        .about-info {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .about-info div {
-            padding: 0.5rem 0;
-        }
-
-        .about-info i {
-            color: #6c5ce7;
-            margin-right: 10px;
-            width: 25px;
-        }
-
-        /* Skills */
-        .skill-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.15);
-        }
-
-        .skill-card i {
-            font-size: 2.5rem;
-            color: #6c5ce7;
-            margin-bottom: 1rem;
-        }
-
-        .skill-card h4 {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .skill-bar {
-            background: #e0e0e0;
-            height: 6px;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
-            height: 100%;
-            border-radius: 3px;
-        }
-
-        /* Projects */
-        .projects {
-            background: #f8f9ff;
-        }
-
-        .project-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            transition: all 0.3s;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            height: 100%;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(108, 92, 231, 0.15);
-        }
-
-        .project-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-icon i {
-            font-size: 1.8rem;
-            color: white;
-        }
-
-        .project-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-desc {
-            color: #6c6c7a;
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-tech span {
-            background: #f8f9ff;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            color: #6c5ce7;
-        }
-
-        /* Experience */
-        .timeline-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            position: relative;
-            padding-left: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .timeline-icon {
-            position: absolute;
-            left: 1rem;
-            top: 1.5rem;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #6c5ce7, #a8a5ff);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .timeline-icon i {
-            color: white;
-        }
-
-        .timeline-date {
-            color: #6c5ce7;
-            font-weight: 500;
-            margin: 0.5rem 0;
-        }
-
-        .timeline-card ul {
-            padding-left: 1.2rem;
-            margin-top: 0.5rem;
-        }
-
-        .timeline-card li {
-            margin-bottom: 0.5rem;
-            color: #4a4a5a;
-        }
-
-        /* Contact */
-        .contact {
-            background: #1e1e2f;
-            color: white;
-        }
-
-        .contact-text {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-info a:hover {
-            color: #a8a5ff;
-        }
-
-        .contact-info i {
-            margin-right: 8px;
-        }
-
-        footer {
-            background: #1e1e2f;
-            padding: 1.5rem 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: white;
-            text-align: center;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .hero-stats {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 768px) {
-            section {
-                padding: 60px 0;
-            }
-            .profile-img-wrapper {
-                width: 220px;
-                height: 220px;
-                margin-top: 2rem;
-            }
-            .profile-img-placeholder {
-                width: 200px;
-                height: 200px;
-            }
-            .profile-img-placeholder i {
-                font-size: 100px;
-            }
-            .about-info {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Anagha Das M — Aspiring Python Django Developer. MCA student building scalable web applications with clean and efficient code." />
+  <meta name="keywords" content="Anagha Das M, Python Developer, Django Developer, MCA, Kerala, Web Developer, Portfolio" />
+  <meta name="author" content="Anagha Das M" />
+  <title>Anagha Das M | Python Django Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Syne (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg fixed-top">
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">AD<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="https://drive.google.com/file/d/1placeholder" target="_blank" class="btn btn-nav">Resume</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-inner">
+      <!-- Left: Text -->
+      <div class="hero-text reveal">
+        <span class="hero-badge">
+          <span class="badge-dot"></span>
+          Open to Work · Python Django
+        </span>
+        <h1 class="hero-heading">
+          Hi, I'm<br />
+          <span class="hero-name">Anagha Das M</span>
+        </h1>
+        <p class="hero-role">Aspiring Python Django Developer</p>
+        <p class="hero-tagline">Building scalable web applications<br />with clean and efficient code.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="https://drive.google.com/file/d/1placeholder" target="_blank" class="btn btn-outline">
+            <i data-lucide="download" class="icon-sm"></i>
+            Download Resume
+          </a>
+        </div>
+        <!-- Stats -->
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">2+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">5+</span>
+            <span class="stat-label">Technologies</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">MCA</span>
+            <span class="stat-label">Student</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Photo -->
+      <div class="hero-photo-wrap reveal delay-200">
+        <div class="hero-photo-ring">
+          <div class="hero-photo-inner">
+            <img
+              src="data:image/jpeg;base64,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"
+              alt="Anagha Das M — Python Django Developer"
+              class="hero-img"
+            />
+          </div>
+        </div>
+        <!-- Floating chips -->
+        <div class="chip chip-django">
+          <span class="chip-icon">🐍</span> Django
+        </div>
+        <div class="chip chip-python">
+          <span class="chip-icon">⚡</span> Python
+        </div>
+        <div class="chip chip-intern">
+          <span class="chip-icon">💼</span> Intern @ Irohub
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-down">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about section" id="about">
     <div class="container">
-        <a class="navbar-brand" href="#">Anagha<span style="color:#6c5ce7;">.</span>Das</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      <div class="section-tag reveal">About Me</div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h2 class="section-heading">Passionate developer,<br />always learning.</h2>
+          <p class="about-desc">
+            I'm <strong>Anagha Das M</strong>, an MCA student at Sree Narayana Gurukulam College of Engineering (KTU), specializing in backend development with Python and Django. Currently interning at <strong>Irohub Infotech, Kochi</strong>, where I build database-driven web applications and REST APIs.
+          </p>
+          <p class="about-desc">
+            I have a strong foundation in Data Structures, DBMS, and Object-Oriented Programming. I enjoy solving real-world problems through clean, efficient code and am passionate about building scalable, role-based web systems.
+          </p>
+          <div class="about-info">
+            <div class="info-item">
+              <i data-lucide="mail" class="icon-sm"></i>
+              <a href="mailto:anaghamdaz@gmail.com">anaghamdaz@gmail.com</a>
+            </div>
+            <div class="info-item">
+              <i data-lucide="map-pin" class="icon-sm"></i>
+              <span>Ernakulam, Kerala, India</span>
+            </div>
+            <div class="info-item">
+              <i data-lucide="phone" class="icon-sm"></i>
+              <a href="tel:+919037340965">+91 9037340965</a>
+            </div>
+            <div class="info-item">
+              <i data-lucide="graduation-cap" class="icon-sm"></i>
+              <span>MCA · 2024–2026</span>
+            </div>
+          </div>
+          <div class="cert-badges">
+            <span class="cert-badge">🏅 Generative AI Literacy — NASSCOM (2025)</span>
+            <span class="cert-badge">🏅 Intro to Graphic Design — NPTEL, IIT Hyderabad (2025)</span>
+          </div>
+        </div>
+
+        <div class="about-right reveal delay-200">
+          <div class="about-card">
+            <div class="acard-icon">🎯</div>
+            <h4>Career Goal</h4>
+            <p>Land a full-time Backend Developer role and contribute to products that scale and make an impact.</p>
+          </div>
+          <div class="about-card">
+            <div class="acard-icon">🔧</div>
+            <h4>Currently Working On</h4>
+            <p>Building backend systems at Irohub Infotech — Django ORM models, authentication, and REST APIs.</p>
+          </div>
+          <div class="about-card">
+            <div class="acard-icon">📚</div>
+            <h4>Currently Learning</h4>
+            <p>Django REST Framework, Docker basics, and system design principles for real-world applications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-tag reveal">Skills</div>
+      <h2 class="section-heading centered reveal">Technical Stack</h2>
+      <p class="section-sub reveal">Technologies I work with to build backend-driven applications.</p>
+
+      <div class="skills-grid reveal delay-100">
+
+        <div class="skill-card">
+          <div class="skill-icon python-icon">🐍</div>
+          <h3>Python</h3>
+          <p>Primary language for backend logic, scripting, and automation.</p>
+          <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon django-icon">🌿</div>
+          <h3>Django</h3>
+          <p>Building MVC web apps, ORM-based models, role-based authentication.</p>
+          <div class="skill-bar"><div class="skill-fill" style="--w:82%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon html-icon">🌐</div>
+          <h3>HTML · CSS · JS</h3>
+          <p>Crafting clean, semantic frontends that pair with Django templates.</p>
+          <div class="skill-bar"><div class="skill-fill" style="--w:75%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon sql-icon">🗄️</div>
+          <h3>SQL / MySQL / SQLite</h3>
+          <p>Database design, queries, joins, and schema management.</p>
+          <div class="skill-bar"><div class="skill-fill" style="--w:78%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon git-icon">🔀</div>
+          <h3>Git & GitHub</h3>
+          <p>Version control, branching strategies, and collaborative workflows.</p>
+          <div class="skill-bar"><div class="skill-fill" style="--w:72%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon rest-icon">🔌</div>
+          <h3>REST APIs</h3>
+          <p>Designing and consuming RESTful endpoints using Django REST Framework.</p>
+          <div class="skill-bar"><div class="skill-fill" style="--w:70%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon c-icon">⚙️</div>
+          <h3>C / C++ / Java</h3>
+          <p>Strong fundamentals in OOP, data structures, and algorithms.</p>
+          <div class="skill-bar"><div class="skill-fill" style="--w:65%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon boot-icon">📐</div>
+          <h3>Bootstrap</h3>
+          <p>Rapid responsive UI development for Django-powered web apps.</p>
+          <div class="skill-bar"><div class="skill-fill" style="--w:70%"></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-tag reveal">Projects</div>
+      <h2 class="section-heading centered reveal">Featured Work</h2>
+      <p class="section-sub reveal">Real-world Django applications I've built from scratch.</p>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card reveal">
+          <div class="project-header">
+            <span class="project-num">01</span>
+            <div class="project-links">
+              <a href="https://github.com/anaghamdaz" target="_blank" aria-label="GitHub" class="project-link"><i data-lucide="github" class="icon-sm"></i></a>
+              <a href="#" target="_blank" aria-label="Live Demo" class="project-link"><i data-lucide="external-link" class="icon-sm"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Home Fix</h3>
+          <p class="project-subtitle">Service Booking System</p>
+          <p class="project-desc">A role-based web platform connecting homeowners with service providers. Implemented dynamic time-slot scheduling, multi-role authentication, and real-time service management — solving the friction of offline home service booking.</p>
+          <ul class="project-features">
+            <li><i data-lucide="check" class="icon-xs"></i> Dynamic time-slot scheduling</li>
+            <li><i data-lucide="check" class="icon-xs"></i> Role-based access (Customer / Provider / Admin)</li>
+            <li><i data-lucide="check" class="icon-xs"></i> Django ORM database models</li>
+            <li><i data-lucide="check" class="icon-xs"></i> User authentication & session management</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Django</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Bootstrap</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card reveal delay-100">
+          <div class="project-header">
+            <span class="project-num">02</span>
+            <div class="project-links">
+              <a href="https://github.com/anaghamdaz" target="_blank" aria-label="GitHub" class="project-link"><i data-lucide="github" class="icon-sm"></i></a>
+              <a href="#" target="_blank" aria-label="Live Demo" class="project-link"><i data-lucide="external-link" class="icon-sm"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">VolunLink</h3>
+          <p class="project-subtitle">Volunteer Management System</p>
+          <p class="project-desc">An intelligent community volunteer coordination platform built for emergency response scenarios. Features real-time alert broadcasting, task allocation by skill-set, and resource tracking — reducing coordination time during crises.</p>
+          <ul class="project-features">
+            <li><i data-lucide="check" class="icon-xs"></i> Role-based access for coordinators & volunteers</li>
+            <li><i data-lucide="check" class="icon-xs"></i> Real-time task allocation & resource tracking</li>
+            <li><i data-lucide="check" class="icon-xs"></i> Emergency alert broadcasting</li>
+            <li><i data-lucide="check" class="icon-xs"></i> SQLite database with Django ORM</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Django</span>
+            <span class="tech-tag">SQLite</span>
+            <span class="tech-tag">JavaScript</span>
+          </div>
+        </div>
+
+        <!-- Project 3: REST API -->
+        <div class="project-card reveal delay-200">
+          <div class="project-header">
+            <span class="project-num">03</span>
+            <div class="project-links">
+              <a href="https://github.com/anaghamdaz" target="_blank" aria-label="GitHub" class="project-link"><i data-lucide="github" class="icon-sm"></i></a>
+              <a href="#" target="_blank" aria-label="Live Demo" class="project-link"><i data-lucide="external-link" class="icon-sm"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">DRF Blog API</h3>
+          <p class="project-subtitle">Django REST Framework API</p>
+          <p class="project-desc">A fully-featured RESTful API for a blogging platform built with Django REST Framework. Provides token-based authentication, CRUD operations, and paginated endpoints — designed to serve both web and mobile clients.</p>
+          <ul class="project-features">
+            <li><i data-lucide="check" class="icon-xs"></i> Token-based JWT authentication</li>
+            <li><i data-lucide="check" class="icon-xs"></i> Full CRUD for posts & comments</li>
+            <li><i data-lucide="check" class="icon-xs"></i> Paginated & filtered API endpoints</li>
+            <li><i data-lucide="check" class="icon-xs"></i> Browsable API with DRF</li>
+          </ul>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Django REST</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">JWT</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <div class="section-tag reveal">Experience & Education</div>
+      <h2 class="section-heading centered reveal">My Journey</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot active"></div>
+          <div class="timeline-card">
+            <div class="tcard-top">
+              <div>
+                <h3>Python Django Intern</h3>
+                <p class="tcard-company">Irohub Infotech, Kochi</p>
+              </div>
+              <span class="tcard-period">2025 – Present</span>
+            </div>
+            <ul class="tcard-list">
+              <li>Developing backend applications using Python and Django</li>
+              <li>Designing database models using Django ORM</li>
+              <li>Implementing authentication and role-based access control</li>
+              <li>Assisting in API development and debugging</li>
             </ul>
+          </div>
         </div>
-    </div>
-</nav>
 
-<!-- Hero Section -->
-<section id="home" class="hero">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <span class="hero-badge">Python Django Developer</span>
-                <h1>Hi, I'm <span class="highlight">Anagha Das M</span></h1>
-                <p class="hero-text">I build database-driven web applications that solve real-world problems. Currently interning as a Python Django Developer, passionate about clean code and efficient solutions.</p>
+        <div class="timeline-item reveal delay-100">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tcard-top">
+              <div>
+                <h3>Master of Computer Applications (MCA)</h3>
+                <p class="tcard-company">Sree Narayana Gurukulam College of Engineering (KTU)</p>
+              </div>
+              <span class="tcard-period">2024 – 2026</span>
+            </div>
+            <p class="tcard-desc">Relevant Coursework: Data Structures, DBMS, Operating Systems, OOP, Software Engineering, Web Technologies.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal delay-200">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card cert-card">
+            <div class="tcard-top">
+              <div>
+                <h3>Certifications</h3>
+                <p class="tcard-company">Professional Development</p>
+              </div>
+              <span class="tcard-period">2025</span>
+            </div>
+            <div class="cert-list">
+              <div class="cert-item">
+                <i data-lucide="award" class="icon-sm"></i>
                 <div>
-                    <a href="#contact" class="btn btn-primary">Hire Me <i class="fas fa-arrow-right"></i></a>
-                    <a href="#projects" class="btn-outline">View Projects <i class="fas fa-code"></i></a>
+                  <p class="cert-name">Generative AI Literacy</p>
+                  <p class="cert-issuer">NASSCOM · 2025</p>
                 </div>
-                <div class="hero-stats">
-                    <div><span>2+</span><br>Projects</div>
-                    <div><span>1+</span><br>Year Experience</div>
-                    <div><span>5+</span><br>Technologies</div>
+              </div>
+              <div class="cert-item">
+                <i data-lucide="award" class="icon-sm"></i>
+                <div>
+                  <p class="cert-name">Introduction to Graphic Designing</p>
+                  <p class="cert-issuer">NPTEL, IIT Hyderabad · 2025</p>
                 </div>
+              </div>
             </div>
-            <div class="col-lg-5 text-center">
-                <div class="profile-img-wrapper">
-                    <div class="profile-img-placeholder">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
-</section>
 
-<!-- About Section -->
-<section id="about" class="about">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact section" id="contact">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-12">
-                <span class="section-subtitle">About Me</span>
-                <h2 class="section-title">Who Am I?</h2>
-                <p class="about-text">I'm an ambitious MCA student with strong internship experience in backend development. I specialize in building database-driven web applications using Django and MySQL, with solid fundamentals in Data Structures and Database Management Systems.</p>
-                <p class="about-text">I thrive on solving real-world problems through technology. Currently pursuing my Master's degree while gaining hands-on experience as a Python Django Intern at Irohub Infotech. My goal is to leverage my skills in backend development to create efficient, scalable, and user-friendly applications.</p>
-                <div class="about-info">
-                    <div><i class="fas fa-envelope"></i> anaghamdaz@gmail.com</div>
-                    <div><i class="fas fa-map-marker-alt"></i> Ernakulam, Kerala</div>
-                    <div><i class="fas fa-phone"></i> +91 9037340965</div>
-                    <div><i class="fab fa-linkedin"></i> linkedin.com/in/anagha-das-m</div>
-                </div>
+      <div class="section-tag reveal">Contact</div>
+      <h2 class="section-heading centered reveal">Let's Work Together</h2>
+      <p class="section-sub reveal">I'm open to internship opportunities, full-time roles, and collaborations. Feel free to reach out!</p>
+
+      <div class="contact-grid">
+        <!-- Left: Info -->
+        <div class="contact-info reveal">
+          <div class="contact-card">
+            <a href="mailto:anaghamdaz@gmail.com" class="cinfo-item">
+              <div class="cinfo-icon"><i data-lucide="mail"></i></div>
+              <div>
+                <p class="cinfo-label">Email</p>
+                <p class="cinfo-val">anaghamdaz@gmail.com</p>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/anagha-das-m-748660403/" target="_blank" class="cinfo-item">
+              <div class="cinfo-icon"><i data-lucide="linkedin"></i></div>
+              <div>
+                <p class="cinfo-label">LinkedIn</p>
+                <p class="cinfo-val">anagha-das-m</p>
+              </div>
+            </a>
+            <a href="https://github.com/anaghamdaz" target="_blank" class="cinfo-item">
+              <div class="cinfo-icon"><i data-lucide="github"></i></div>
+              <div>
+                <p class="cinfo-label">GitHub</p>
+                <p class="cinfo-val">@anaghamdaz</p>
+              </div>
+            </a>
+            <div class="cinfo-item">
+              <div class="cinfo-icon"><i data-lucide="phone"></i></div>
+              <div>
+                <p class="cinfo-label">Phone</p>
+                <p class="cinfo-val">+91 9037340965</p>
+              </div>
             </div>
+          </div>
         </div>
+
+        <!-- Right: Form -->
+        <form class="contact-form reveal delay-200" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" placeholder="e.g. Rahul Kumar" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" placeholder="rahul@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Internship Opportunity / Collaboration" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Hello Anagha, I'd like to discuss..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <i data-lucide="send" class="icon-sm"></i>
+            Send Message
+          </button>
+        </form>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- Skills Section -->
-<section id="skills">
-    <div class="container">
-        <div class="text-center">
-            <span class="section-subtitle">My Skills</span>
-            <h2 class="section-title">Technical Expertise</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-lg-3">
-                <div class="skill-card"><i class="fab fa-python"></i><h4>Python</h4><div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div></div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="skill-card"><i class="fab fa-django"></i><h4>Django</h4><div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div></div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="skill-card"><i class="fas fa-database"></i><h4>MySQL</h4><div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div></div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="skill-card"><i class="fab fa-js"></i><h4>JavaScript</h4><div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div></div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="skill-card"><i class="fab fa-html5"></i><h4>HTML5/CSS3</h4><div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div></div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="skill-card"><i class="fab fa-git-alt"></i><h4>Git</h4><div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div></div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="skill-card"><i class="fas fa-code"></i><h4>C/C++</h4><div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div></div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="skill-card"><i class="fab fa-java"></i><h4>Java/PHP</h4><div class="skill-bar"><div class="skill-progress" style="width: 65%"></div></div></div>
-            </div>
-        </div>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="#home" class="footer-logo">Anagha Das M<span>.</span></a>
+      <p class="footer-desc">Python Django Developer · Aspiring Backend Engineer</p>
+      <div class="footer-socials">
+        <a href="https://github.com/anaghamdaz" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
+        <a href="https://www.linkedin.com/in/anagha-das-m-748660403/" target="_blank" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+        <a href="mailto:anaghamdaz@gmail.com" aria-label="Email"><i data-lucide="mail"></i></a>
+      </div>
+      <p class="footer-copy">© 2026 Anagha Das M · Built with 🤍 for Python & Django</p>
     </div>
-</section>
+  </footer>
 
-<!-- Projects Section -->
-<section id="projects" class="projects">
-    <div class="container">
-        <div class="text-center">
-            <span class="section-subtitle">My Work</span>
-            <h2 class="section-title">Featured Projects</h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="project-card">
-                    <div class="project-icon"><i class="fas fa-home"></i></div>
-                    <h3>Home Fix - Service Booking System</h3>
-                    <p class="project-desc">Role-based web platform for booking home services. Implemented dynamic time-slot scheduling, user authentication, and service provider management.</p>
-                    <div class="project-tech">
-                        <span>Python</span><span>Django</span><span>MySQL</span><span>Bootstrap</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="project-card">
-                    <div class="project-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <h3>VolunLink - Volunteer Management System</h3>
-                    <p class="project-desc">Intelligent community volunteer coordination platform for emergency response. Features role-based access, task allocation, real-time alerts, and resource tracking.</p>
-                    <div class="project-tech">
-                        <span>Python</span><span>Django</span><span>SQLite</span><span>JavaScript</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Experience Section -->
-<section id="experience">
-    <div class="container">
-        <div class="text-center">
-            <span class="section-subtitle">Resume</span>
-            <h2 class="section-title">Experience & Education</h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="timeline-card">
-                    <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
-                    <h3>Python Django Intern</h3>
-                    <h4>Irohub Infotech, Kochi</h4>
-                    <p class="timeline-date">2025 - Present</p>
-                    <ul>
-                        <li>Developing backend applications using Python and Django</li>
-                        <li>Designing database models using Django ORM</li>
-                        <li>Implementing authentication and role-based access</li>
-                        <li>Assisting in API development and debugging</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="timeline-card">
-                    <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <h3>Master of Computer Applications</h3>
-                    <h4>Sree Narayana Gurukulam College of Engineering (KTU)</h4>
-                    <p class="timeline-date">2024 - 2026</p>
-                    <p>Relevant Coursework: Data Structures, DBMS, Operating Systems, OOP, Software Engineering, Web Technologies</p>
-                </div>
-                <div class="timeline-card">
-                    <div class="timeline-icon"><i class="fas fa-certificate"></i></div>
-                    <h3>Certifications</h3>
-                    <ul>
-                        <li>Generative AI Literacy - NASSCOM (2025)</li>
-                        <li>Introduction to Graphic Designing - NPTEL, IIT Hyderabad (2025)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="contact">
-    <div class="container">
-        <div class="text-center">
-            <span class="section-subtitle" style="color: #a8a5ff;">Get In Touch</span>
-            <h2 class="section-title" style="color: white;">Let's Work Together</h2>
-            <p class="contact-text">I'm currently available for internship or full-time opportunities. Feel free to reach out!</p>
-            <div class="contact-info">
-                <a href="mailto:anaghamdaz@gmail.com"><i class="fas fa-envelope"></i> anaghamdaz@gmail.com</a>
-                <a href="tel:+919037340965"><i class="fas fa-phone"></i> +91 9037340965</a>
-                <a href="https://github.com/anaghamdaz" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/anagha-das-m-748660403/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <div class="container">
-        <p>&copy; 2026 Anagha Das M. Built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for Python Django development.</p>
-    </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-
-    // Navbar background change on scroll
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-        } else {
-            navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
-        }
-    });
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
