@@ -65,7 +65,7 @@ document.querySelectorAll('.proficiency-grid').forEach(g => barObserver.observe(
 // ---- Typed text effect in hero ----
 const typedEl = document.getElementById('typed-role');
 if (typedEl) {
-  const roles = ['Python Django Developer', 'Backend Engineer', 'REST API Builder', 'Problem Solver'];
+  const roles = ['Python Django Developer', 'Backend Developer (Python Django)', 'REST API Builder', 'Problem Solver'];
   let roleIdx = 0, charIdx = 0, deleting = false;
   function type() {
     const current = roles[roleIdx];
